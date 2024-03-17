@@ -1,5 +1,7 @@
 extends Area2D
 
+signal hit
+
 @export var speed = 400 #how fast the player will move in pixels/second
 var screen_size
 var previous_velocity = Vector2.ZERO
@@ -8,8 +10,7 @@ var velocity = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	#hide()
-	pass
+	hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,11 +52,6 @@ func _process(delta):
 		$AnimatedSprite2D.flip_h = false
 		#$AnimatedSprite2D.flip_v = velocity.y > 0 or previous_velocity.y > 0
 	
-	#if velocity.x != 0:
-		#$AnimatedSprite2D.animation = "walk"
-		#$AnimatedSprite2D.flip_v = false
-		## See the note below about boolean assignment.
-		#$AnimatedSprite2D.flip_h = velocity.x < 0
-	#elif velocity.y != 0:
-		#$AnimatedSprite2D.animation = "up"
-		#$AnimatedSprite2D.flip_v = velocity.y > 0
+
+func _on_body_entered(body):
+	pass # Replace with function body.

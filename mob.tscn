@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cq1u2yhik2fax"]
+[gd_scene load_steps=10 format=3 uid="uid://cq1u2yhik2fax"]
 
+[ext_resource type="Script" path="res://mob.gd" id="1_0vg2r"]
 [ext_resource type="Texture2D" uid="uid://b7drhaeopj532" path="res://art/enemyFlyingAlt_1.png" id="1_udbur"]
 [ext_resource type="Texture2D" uid="uid://bqruaklxc8rtq" path="res://art/enemyFlyingAlt_2.png" id="2_nj8hp"]
 [ext_resource type="Texture2D" uid="uid://c31wt57boty7d" path="res://art/enemySwimming_1.png" id="3_s7hmw"]
@@ -50,6 +51,7 @@ height = 98.0
 [node name="Mob" type="RigidBody2D"]
 collision_mask = 0
 gravity_scale = 0.0
+script = ExtResource("1_0vg2r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
@@ -65,3 +67,5 @@ metadata/_edit_group_ = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 metadata/_edit_group_ = true
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

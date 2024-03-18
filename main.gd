@@ -15,6 +15,8 @@ func _process(delta):
 
 
 func game_over():
+	$Music.stop()
+	$GameOverSound.play()
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	
@@ -24,6 +26,7 @@ func game_over():
 func new_game():
 	get_tree().call_group("mobs", "queue_free")
 	score = 0
+	$Music.play()
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	
